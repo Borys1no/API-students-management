@@ -1,18 +1,28 @@
 package com.example.student_management.domain;
 
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="profesor")
 public class Profesor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id_profesor;
     private String nombres;
     private String apellidos;
     private String email;
     private String especialidad;
 
+    public Profesor(){}
+
+
 
     //Constructor
 
 
-    public Profesor(int id_profesor, String nombres, String apellidos, String email, String especialidad) {
-        this.id_profesor = id_profesor;
+    public Profesor( String nombres, String apellidos, String email, String especialidad) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.email = email;

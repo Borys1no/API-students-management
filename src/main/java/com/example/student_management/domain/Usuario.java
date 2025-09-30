@@ -1,20 +1,28 @@
 package com.example.student_management.domain;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "usuario")
 public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_usuario;
     private String username;
     private String password;
     private String email;
-    private boolean enabled;
+    private boolean enable = true;
+
+    public Usuario(){}
 
     //Constructor
 
-    public Usuario(int id_usuario, String username, String password, String email, boolean enabled) {
-        this.id_usuario = id_usuario;
+    public Usuario( String username, String password, String email, boolean enable) {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.enabled = enabled;
+        this.enable = enable;
     }
 
     //Getter & Setter
@@ -53,10 +61,10 @@ public class Usuario {
     }
 
     public boolean isEnabled() {
-        return enabled;
+        return enable;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    public void setEnabled(boolean enable) {
+        this.enable = enable;
     }
 }

@@ -14,10 +14,26 @@ public class UsuarioRolId implements Serializable {
         this.idRol = idRol;
     }
 
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public int getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(int idRol) {
+        this.idRol = idRol;
+    }
+
     @Override
     public boolean equals (Object o){
         if(this == o ) return  true;
-        if(o == null || getClass() != o.getClass()) return false;
+        if(!(o instanceof UsuarioRolId)) return false;
         UsuarioRolId that = (UsuarioRolId) o;
         return idUsuario == that.idUsuario && idRol == that.idRol;
     }

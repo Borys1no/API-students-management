@@ -30,6 +30,7 @@ public class RegistroProfesorService {
         usuario.setUsername(dto.getUsername());
         usuario.setPassword(dto.getPassword());
         usuario.setEmail(dto.getEmail());
+        usuario.setEnabled(true);
         Usuario savedUsuario = usuarioRepository.save(usuario);
 
         for(Integer rolId: dto.getRoles()){
@@ -42,7 +43,7 @@ public class RegistroProfesorService {
         profesor.setApellidos(dto.getApellidos());
         profesor.setEmail(dto.getEmail());
         profesor.setEspecialidad(dto.getEspecialidad());
-        profesor.setId_profesor(savedUsuario.getId_usuario());
+        profesor.setUsuario(savedUsuario);
 
         return profesorRepository.save(profesor);
     }
